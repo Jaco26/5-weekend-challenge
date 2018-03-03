@@ -16,7 +16,9 @@
     <section class="results-interface">
         <p>this is where the results will go</p>
 
-        
+        <ul>
+            <li ng-repeat="result in search.returned.data.results">{{result.name || result.title}}</li>
+        </ul>
 
     </section>
 </div>
