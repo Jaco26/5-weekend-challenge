@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Access SWAPI</title>
-    <link rel="stylesheet" href="vendors/bootstrap.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/style.css">
     <!-- Angular JS -->
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
+    <!-- Angular Material -->
+    <link rel="stylesheet" href="vendors/angular-material.css">
+    <script src="vendors/angular-material.js"></script>
+    <script src="vendors/anuglar-animate.js"></script>
+    <script src="vendors/angular-aria.js"></script>
+    <script src="vendors/angular-messages.js"></script>
     <!-- Custom JS -->
     <script src="scripts/client.js"></script>
     <script src="scripts/services/swapi.service.js"></script>
@@ -17,8 +23,8 @@
     <script src="scripts/controllers/search.controller.js"></script>
 </head>
 <body ng-app="swapiApp">
-    <div class="container">
-        <nav class="navbar d-block">
+    <div>
+        <nav>
             <a href="/#!search">Search</a>
             <a href="/#!favs">Favorites</a>
         </nav>

@@ -1,6 +1,6 @@
-<div class="row">
-    <section class="search-interface d-inline col-12">
-        <h3 class="font-weight-light">Search SWAPI</h3>
+<div >
+    <section class="search-interface">
+        <h3>Search SWAPI</h3>
         <select ng-model="whichResource" ng-change="search.searchField(whichResource)">
             <option ng-repeat="resource in search.resources.list">{{resource}}</option>
         </select>
@@ -12,7 +12,7 @@
     </section>
 </div>
 
-<div class="row mt-4 ">
+<div>
     <section class="results-interface">
         <p>this is where the results will go</p>
 

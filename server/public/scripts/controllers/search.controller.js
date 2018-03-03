@@ -1,4 +1,4 @@
-app.controller('SearchController', ['SWAPIService as swapi', function(swapi) {
+app.controller('SearchController', ['SWAPIService as swapi', function(swapi, $mdDialogue, $mdToast) {
     const self = this;
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
@@ -9,7 +9,6 @@ app.controller('SearchController', ['SWAPIService as swapi', function(swapi) {
     self.wookieeCheckBox = {
         value1: false,
     };
-
     // Dynamic search bar placeholder
     self.searchBarPlaceholder = 'search...';
     self.searchField = (whichResource) => {
