@@ -2,13 +2,12 @@ app.controller('SearchController', ['SWAPIService as swapi', function(swapi, $md
     const self = this;
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
-    // pass this into Append this to request urls to get response translated into Wookiee
-    self.formatWookie = '?format=wookiee';
 
     // format wookiee checkbox (true of false)
     self.wookieeCheckBox = {
         value1: false,
     };
+
     // Dynamic search bar placeholder
     self.searchBarPlaceholder = 'search...';
     self.searchField = (whichResource) => {
@@ -34,13 +33,9 @@ app.controller('SearchController', ['SWAPIService as swapi', function(swapi, $md
     // swapi returned data objects
     self.returned = swapi.returned
 
-
     // swapi $http references
     self.searchSWAPI = swapi.searchSWAPI;
     self.getAll = swapi.getAll;
-
-
-
 
     // swapi $http calls
 
