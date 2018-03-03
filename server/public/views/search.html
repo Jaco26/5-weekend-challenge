@@ -22,12 +22,52 @@
 
 <div>
     <section class="results-interface">
-        <md-card ng-repeat="result in search.returned.data.results">
+        <!-- Films Cards -->
+        <md-card ng-if="result.url.includes('films')" ng-repeat="result in search.returned.data.results | orderBy: 'episode_id'">
             <md-card-heade-text>
-                <h3>{{result.name}}</h3>
-                <p>{{result.}}</p>
+                <h6>Films Card</h6>
+                <h4>Episode {{result.episode_id}}: {{result.title}} </h4>
+                <ul class="list-unstyled">
+                    <li>Release date: {{result.release_date}}</li>
+                    <li>Director: {{result.director}}</li>
+                    <li>Producer(s): {{result.producer}}</li>
+                </ul>
+                <button class="btn btn-secondary" ng-click="search.filmModal(result)">More...</button>
             </md-card-header-text>
         </md-card>
+
+        <!-- People Cards -->
+        <md-card ng-if="result.url.includes('people')" ng-repeat="result in search.returned.data.results">
+            <h6>People Card</h6>
+            <h4>{{result.name}}</h4>
+        </md-card>
+
+        <!-- Planets Cards -->
+        <md-card ng-if="result.url.includes('planets')" ng-repeat="result in search.returned.data.results">
+            <h6>Planets Card</h6>
+            <h4>{{result.name}}</h4>
+        </md-card>
+
+
+        <!-- Species Cards -->
+        <md-card ng-if="result.url.includes('species')" ng-repeat="result in search.returned.data.results">
+            <h6>Species Card</h6>
+            <h4>{{result.name}}</h4>
+        </md-card>
+
+        <!-- Starships Cards -->
+        <md-card ng-if="result.url.includes('starships')" ng-repeat="result in search.returned.data.results">
+            <h6>Starships Card</h6>
+            <h4>{{result.name}}</h4>
+        </md-card>
+
+        <!-- Vehicles Cards -->
+        <md-card ng-if="result.url.includes('vehicles')" ng-repeat="result in search.returned.data.results">
+            <h6>Vehicles Card</h6>
+            <h4>{{result.name}}</h4>
+        </md-card>
+
+
     </section>
 </div>
 
