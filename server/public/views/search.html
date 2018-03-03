@@ -1,1 +1,19 @@
-<p>This is the search view. This is where we'll search</p>
+<div class="row">
+    <section class="search-interface d-inline col-12">
+        <h3 class="font-weight-light">Search SWAPI</h3>
+        <select ng-model="whichResource" ng-change="search.searchField(whichResource)">
+            <option ng-repeat="resource in search.resources.list">{{resource}}</option>
+        </select>
+        <input type="text" placeholder="{{search.searchBarPlaceholder}}" ng-model="seachQuery">
+        <button class="btn btn-primary" ng-click="search.searchSWAPI(whichResource, seachQuery)">Search</button>
+    </section>
+</div>
+
+<div class="row mt-4 ">
+    <section class="results-interface">
+        <p>this is where the results will go</p>
+    </section>
+</div>
+
+
+

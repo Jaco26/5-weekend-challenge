@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Access SWAPI</title>
+    <link rel="stylesheet" href="vendors/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
     <!-- Angular JS -->
     <script src="vendors/angular.js"></script>
@@ -16,15 +17,17 @@
     <script src="scripts/controllers/search.controller.js"></script>
 </head>
 <body ng-app="swapiApp">
+    <div class="container">
+        <nav class="navbar d-block">
+            <a href="/#!search">Search</a>
+            <a href="/#!favs">Favorites</a>
+        </nav>
 
-    <nav>
-        <a href="/#!search">Search</a>
-        <a href="/#!favs">Favorites</a>
-    </nav>
+        <main ng-view>
 
-    <main ng-view>
-
-    </main>
+        </main>
+    </div>
+    
     
 </body>
 </html>

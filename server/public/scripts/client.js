@@ -3,7 +3,7 @@ const app = angular.module('swapiApp', ['ngRoute']);
 app.config( ($routeProvider) => {
     $routeProvider.when('/', {
         templateUrl: 'views/search.html',
-        controller: 'SearchController as sc'
+        controller: 'SearchController as search'
     }).when('/favs', {
         templateUrl: 'views/favorites.html',
         controller: 'FavoritesController as fc'
