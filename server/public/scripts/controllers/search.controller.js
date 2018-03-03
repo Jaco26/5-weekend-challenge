@@ -42,6 +42,7 @@ function searchCtl (swapi) {
 
     // swapi $http references
     self.searchSWAPI = swapi.searchSWAPI;
+    self.getAll = swapi.getAll;
 
 
     // swapi $http calls

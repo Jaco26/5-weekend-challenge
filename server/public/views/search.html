@@ -8,12 +8,16 @@
         <label for="wookieeYes">Format my results in Wookiee</label>
         <input type="checkbox" ng-model="search.wookieeCheckBox.value1"  name="wookieeYess">
         <button class="btn btn-primary" ng-click="search.searchSWAPI(whichResource, seachQuery, search.wookieeCheckBox.value1)">Search</button>
+        <button class="btn btn-secondary" ng-click="search.getAll(whichResource)">Get all {{whichResource}}</button>
     </section>
 </div>
 
 <div class="row mt-4 ">
     <section class="results-interface">
         <p>this is where the results will go</p>
+
+        
+
     </section>
 </div>
 
