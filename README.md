@@ -14,3 +14,10 @@
         - species
         - starships
         - vehicles
+
+- People 
+    * Card Info
+        - name
+        - birth_year
+        - homeworld
+        

@@ -5,6 +5,8 @@ function swapiSvc ($http) {
     const baseUrl = 'https://swapi.co/api/';
 
     self.returned = {data: []}; 
+    console.log(self.returned);
+    
 
     self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
         console.log('whichResource', whichResource, 'searchQuery', searchQuery, 'wookiee', wookiee);
@@ -34,9 +36,12 @@ function swapiSvc ($http) {
         }).then((response) => {
             self.returned.data = {};
             self.returned.data = response.data;
+            console.log(self.returned.data);
         }).catch((error) => {
             console.error('Error in self.searchSWAPI');
         });
     }
+
+
 
 }

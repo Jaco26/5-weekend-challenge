@@ -1,4 +1,4 @@
-app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', function(swapi, $scope, $mdDialog, $mdToast) {
+app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', function(swapi, $mdDialog, $mdToast) {
     const self = this;
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
@@ -38,38 +38,27 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     self.getAll = swapi.getAll;
 
 
-    // ngDialogue 
-    $scope.showTabDialog = function (ev) {
-        $mdDialog.show({
-            controller: DialogController,
-            templateUrl: 'tabDialog.tmpl.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true
-        })
-            .then(function (answer) {
-                $scope.status = 'You said the information was "' + answer + '".';
-            }, function () {
-                $scope.status = 'You cancelled the dialog.';
-            });
-    };
-  
-
-
-
-    function DialogController($scope, $mdDialog) {
-        $scope.hide = function () {
-            $mdDialog.hide();
-        };
-
-        $scope.cancel = function () {
-            $mdDialog.cancel();
-        };
-
-        $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
-        };
+    // SEND FAVORITES TO DATABASE
+    self.favoriteThis = (result) => {
+        console.log(result);
+        
     }
+
+
+
+
+    // self.showAlert = function (ev) {
+    //     $mdDialog.show(
+    //         $mdDialog.alert()
+    //             .parent(angular.element(document.querySelector('#popupContainer')))
+    //                 .clickOutsideToClose(true)
+    //                 .title('This is an alert title')
+    //                 .textContent('You can specify something here')
+    //                 .ariaLabel('Alert Dialog Demo')
+    //                 .ok('Got it!')
+    //                 .targetEvent(ev)
+    //     )  
+    // } // END self.showAlert
 
 
 

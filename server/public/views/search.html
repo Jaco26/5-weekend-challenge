@@ -24,36 +24,56 @@
     <section class="results-interface">
         <!-- Films Cards -->
         <md-card ng-if="result.url.includes('films')" ng-repeat="result in search.returned.data.results | orderBy: 'episode_id'">
-            <md-card-heade-text>
-                <h6>Films Card</h6>
-                <h4>Episode {{result.episode_id}}: {{result.title}} </h4>
-                <ul class="list-unstyled">
+            <div layout="column">
+                <h3 layout-padding >Episode {{result.episode_id}}: {{result.title}} </h3>
+                <ul flex>
                     <li>Release date: {{result.release_date}}</li>
                     <li>Director: {{result.director}}</li>
                     <li>Producer(s): {{result.producer}}</li>
                 </ul>
-
+            </div>
+                <md-card-content layout="column">
+                    <div flex="30">
+                        <h3>Opening Crawl</h3>
+                        <p>{{result.opening_crawl}}</p>
+                    </div>
+                </md-card-content>
                 <md-card-actions layout="row" layout-align="start center">
-                    <md-button class="md-primary md-raised" ng-click="$scope.showTabDialog($event)">More...</md-button>
+                    <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
                 </md-card-actions>
-
-            </md-card-header-text>
         </md-card>
-
-
-
 
 
         <!-- People Cards -->
         <md-card ng-if="result.url.includes('people')" ng-repeat="result in search.returned.data.results">
-            <h6>People Card</h6>
-            <h4>{{result.name}}</h4>
+            <div layout="column">
+                <h3 layout-padding>{{result.name}}</h3>
+                <ul flex>
+                    <li>Birth year: {{result.birth_year}}</li>
+                    <li>Homeworld: {{result.homeworld}}</li>
+                </ul>
+           
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
+            </md-card-actions>
         </md-card>
 
         <!-- Planets Cards -->
-        <md-card ng-if="result.url.includes('planets')" ng-repeat="result in search.returned.data.results">
-            <h6>Planets Card</h6>
-            <h4>{{result.name}}</h4>
+        <md-card ng-if="result.rotation_period" ng-repeat="result in search.returned.data.results">
+            <div layout="column">
+                <h3 layout-padding>{{result.name}}</h3>
+                <ul flex>
+                    <li>Climate: {{result.climate}}</li>
+                    <li>Diameter: {{result.diameter}}</li>
+                    <li>Gravity: {{result.gravity}}</li>
+                    <li>Orbital period: {{result.orbital_period}}</li>
+                    <li>Surface water: {{result.surface_water}} </li>
+                    <li>Terrain: {{result.terrain}}</li>
+                </ul>
+            
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
+                </md-card-actions>
         </md-card>
 
 
@@ -79,41 +99,15 @@
 </div>
 
 
+<!-- <div layout="row" layout-wrap layout-margin layout-align="center">
+    <md-button class="md-primary md-raised" ng-click="search.showAlert($event)">Alert Dialog</md-button>
+</div> 
 
 
+<div md-dialog id="popupContainer">
+    <div md-dialog-content >
 
-<!-- <md-card>
-    <md-card-header>
-        <md-card-avatar>
-            <img class="md-user-avatar" src="avatar.png">
-        </md-card-avatar>
-        <md-card-header-text>
-            <span class="md-title">Title</span>
-            <span class="md-subhead">Sub header</span>
-        </md-card-header-text>
-    </md-card-header>
-    <img ng-src="card-image.png" class="md-card-image" alt="image caption">
-    <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline">Card headline</span>
-            <span class="md-subhead">Card subheader</span>
-        </md-card-title-text>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="start center">
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
-        <md-card-icon-actions>
-            <md-button class="md-icon-button" aria-label="icon">
-                <md-icon md-svg-icon="icon"></md-icon>
-            </md-button>
-        </md-card-icon-actions>
-    </md-card-actions>
-    <md-card-content>
-        <p>
-            Card content
-        </p>
-    </md-card-content>
-</md-card> -->
-
+    </div>
+</div> -->
 
 
