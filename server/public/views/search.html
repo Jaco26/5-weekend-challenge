@@ -5,7 +5,9 @@
             <option ng-repeat="resource in search.resources.list">{{resource}}</option>
         </select>
         <input type="text" placeholder="{{search.searchBarPlaceholder}}" ng-model="seachQuery">
-        <button class="btn btn-primary" ng-click="search.searchSWAPI(whichResource, seachQuery)">Search</button>
+        <label for="wookieeYes">Format my results in Wookiee</label>
+        <input type="checkbox" ng-model="search.wookieeCheckBox.value1"  name="wookieeYess">
+        <button class="btn btn-primary" ng-click="search.searchSWAPI(whichResource, seachQuery, search.wookieeCheckBox.value1)">Search</button>
     </section>
 </div>
 

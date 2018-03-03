@@ -4,10 +4,18 @@ function searchCtl (swapi) {
     const self = this;
     // list of searchable resources and their attributes
     self.resources = {list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles']}; 
-    // Append this to request urls to get response translated into Wookiee
+    // pass this into Append this to request urls to get response translated into Wookiee
     self.formatWookie = '?format=wookiee'; 
 
-    // search bar place holder
+    // format wookiee checkbox (true of false)
+    self.wookieeCheckBox = {
+        value1: false,
+    };
+    
+    
+    
+
+    // Dynamic search bar placeholder
     self.searchBarPlaceholder = 'search...';
     self.searchField = (whichResource) => {
         console.log('in searchField', whichResource);

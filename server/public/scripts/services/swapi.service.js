@@ -6,8 +6,12 @@ function swapiSvc ($http) {
 
     self.returnedData = {list: []};
 
-    self.searchSWAPI = (whichResource) => {
-        console.log(whichResource);
+    self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
+        console.log(
+            'whichResource', whichResource,
+            'searchQuery', searchQuery,
+            'wookiee', wookiee
+        );
     }
 
 
