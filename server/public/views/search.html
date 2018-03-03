@@ -32,9 +32,17 @@
                     <li>Director: {{result.director}}</li>
                     <li>Producer(s): {{result.producer}}</li>
                 </ul>
-                <button class="btn btn-secondary" ng-click="search.filmModal(result)">More...</button>
+
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button class="md-primary md-raised" ng-click="$scope.showTabDialog($event)">More...</md-button>
+                </md-card-actions>
+
             </md-card-header-text>
         </md-card>
+
+
+
+
 
         <!-- People Cards -->
         <md-card ng-if="result.url.includes('people')" ng-repeat="result in search.returned.data.results">
@@ -66,7 +74,6 @@
             <h6>Vehicles Card</h6>
             <h4>{{result.name}}</h4>
         </md-card>
-
 
     </section>
 </div>

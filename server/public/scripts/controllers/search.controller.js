@@ -1,4 +1,4 @@
-app.controller('SearchController', ['SWAPIService as swapi', function(swapi, $mdDialogue, $mdToast) {
+app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', function(swapi, $scope, $mdDialog, $mdToast) {
     const self = this;
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
@@ -30,15 +30,50 @@ app.controller('SearchController', ['SWAPIService as swapi', function(swapi, $md
         }
     }
 
-    // swapi returned data objects
+    // swapi returned data object
     self.returned = swapi.returned
 
-    // swapi $http references
+    // swapi $http function references
     self.searchSWAPI = swapi.searchSWAPI;
     self.getAll = swapi.getAll;
 
-    // swapi $http calls
 
+    // ngDialogue 
+    $scope.showTabDialog = function (ev) {
+        $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'tabDialog.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true
+        })
+            .then(function (answer) {
+                $scope.status = 'You said the information was "' + answer + '".';
+            }, function () {
+                $scope.status = 'You cancelled the dialog.';
+            });
+    };
+  
+
+
+
+    function DialogController($scope, $mdDialog) {
+        $scope.hide = function () {
+            $mdDialog.hide();
+        };
+
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
+
+        $scope.answer = function (answer) {
+            $mdDialog.hide(answer);
+        };
+    }
+
+
+
+      // swapi $http calls
 }]);
 
 
