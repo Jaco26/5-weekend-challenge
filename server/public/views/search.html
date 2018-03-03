@@ -1,37 +1,72 @@
 <div layout="row">
   
     <section class="search-interface">
-        <h3>Search SWAPI</h3>
-        <md-input-container>
-            <md-select ng-model="whichResource" ng-change="search.searchField(whichResource)">
-                <md-option ng-value="resource" ng-repeat="resource in search.resources.list">{{resource}}</md-option>
-            </md-select>
-        </md-input-container>
-        <md-input-container>
-            <input type="text" placeholder="{{search.searchBarPlaceholder}}" ng-model="seachQuery">
-        </md-input-container>
-       
-        <label for="wookieeYes">Format my results in Wookiee</label>
-        <input class="md-primary" type="checkbox" ng-model="search.wookieeCheckBox.value1"  name="wookieeYess">
-        <md-button class="md-raised md-accent" md-no-ink="true" ng-click="search.searchSWAPI(whichResource, seachQuery, search.wookieeCheckBox.value1)">Search</md-button>
-        <md-button class="md-raised md-primary" md-no-ink="true" ng-click="search.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
+        <md-content layout-padding>
+            <h3>Search SWAPI</h3>
+            <md-input-container>
+                <md-select ng-model="whichResource" ng-change="search.searchField(whichResource)">
+                    <md-option ng-value="resource" ng-repeat="resource in search.resources.list">{{resource}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <input type="text" placeholder="{{search.searchBarPlaceholder}}" ng-model="seachQuery">
+            </md-input-container>
+        
+            <label for="wookieeYes">Format my results in Wookiee</label>
+            <input class="md-primary" type="checkbox" ng-model="search.wookieeCheckBox.value1"  name="wookieeYess">
+            <md-button class="md-raised md-accent" md-no-ink="true" ng-click="search.searchSWAPI(whichResource, seachQuery, search.wookieeCheckBox.value1)">Search</md-button>
+            <md-button class="md-raised md-primary" md-no-ink="true" ng-click="search.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
+        </md-content>
     </section>
 </div>
 
 <div>
     <section class="results-interface">
-        <p>this is where the results will go</p>
-
-        <ul>
-            <li ng-repeat="result in search.returned.data.results">{{result.name || result.title}}</li>
-        </ul>
-
+        <md-card ng-repeat="result in search.returned.data.results">
+            <md-card-heade-text>
+                <h3>{{result.name}}</h3>
+                <p>{{result.}}</p>
+            </md-card-header-text>
+        </md-card>
     </section>
 </div>
 
 
 
-  
-</md-input-container>
+
+
+<!-- <md-card>
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" src="avatar.png">
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">Sub header</span>
+        </md-card-header-text>
+    </md-card-header>
+    <img ng-src="card-image.png" class="md-card-image" alt="image caption">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Card headline</span>
+            <span class="md-subhead">Card subheader</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="start center">
+        <md-button>Action 1</md-button>
+        <md-button>Action 2</md-button>
+        <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="icon">
+                <md-icon md-svg-icon="icon"></md-icon>
+            </md-button>
+        </md-card-icon-actions>
+    </md-card-actions>
+    <md-card-content>
+        <p>
+            Card content
+        </p>
+    </md-card-content>
+</md-card> -->
+
 
 
