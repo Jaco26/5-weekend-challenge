@@ -2,12 +2,16 @@ app.service('SWAPIService as swapi', ['$http', swapiSvc]);
 
 function swapiSvc ($http) {
     const self = this;
+   
+
+
+
+    // SWAPI URLS
     const baseUrl = 'https://swapi.co/api/';
 
     self.returned = {SWAPIdata: [], FAVSdata: [], favDeets: []}; 
     
     // Star Wars API Gets
-
     self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
         console.log('whichResource', whichResource, 'searchQuery', searchQuery, 'wookiee', wookiee);
         let swapiQuery;
@@ -54,9 +58,9 @@ function swapiSvc ($http) {
                 method: 'GET',
                 url: url,
             }).then((response) => {
-                response.data.showDeets = true;
                 self.returned.favDeets.push(response.data);
                 console.log(self.returned.favDeets);
+                getGIF(self.returned.favDeets[self.returned.favDeets.length - 1].name || self.returned.favDeets[self.returned.favDeets.length - 1].title);
             }).catch((error) => {
                 console.log(error);
             }); // END $http
@@ -66,6 +70,8 @@ function swapiSvc ($http) {
       /////////// //////////////////////
      // SWAPIfavs Post, Get & Delete //
     ///////////// ////////////////////
+
+ 
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
         let name;
@@ -110,5 +116,31 @@ function swapiSvc ($http) {
             console.log(error);            
         }); // END $http
     } // END self.deleteFav
+
+      ///////////////////////////
+     //// GIPHY CALLS //////////
+    ///////////////////////////
+
+    // GIPHY URLS
+    const searchGIPHYurl = 'http://api.giphy.com/v1/gifs/search?q=';
+    const apiKey = '&api_key=0rj09zTLmHbERPILRy44muwCAFJwgyCZ';
+    const limit = '&limit=1'
+
+    function getGIF (name) {
+        console.log(name);
+        
+
+        $http({
+            method: 'GET',
+            url: searchGIPHYurl + name + apiKey + limit,
+        }).then( (response) => {
+            // console.log(response.data);
+            // console.log(self.returned.favDeets[self.returned.favDeets.length - 1]);
+            self.returned.favDeets[self.returned.favDeets.length - 1].gif = response.data.data[0].images.downsized_medium.url;
+            // console.log(self.returned.favDeets[1].gif);
+        }).catch( (error) => {
+            console.log(error); 
+        }); // END $http
+    } // END getGIF
 
 } // END swapiSvc
