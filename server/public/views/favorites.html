@@ -4,13 +4,28 @@
 
 <md-card ng-repeat="fav in fc.returned.FAVSdata">
     <h3> {{fav.name}} </h3>
-    <md-button ng-click="fc.getItemByURL(fav.url)">More</md-button>
-    <md-card-content ng-repeat="deets in fc.returned.favDeets" ng-if="deets.url === fav.url">
-        <ul flex>
-            <li>Birth year: {{deets.birth_year}}</li>
-            <li>Homeworld: {{deets.homeworld}}</li>
-        </ul>
-    </md-card-content>
+    <md-button class="md-primary md-raised" ng-click="fc.getItemByURL(fav.url)">Get More Info</md-button>
+    <div ng-repeat="deets in fc.returned.favDeets" ng-if="deets.url === fav.url">
+        
+        <!-- Card content for PEOPLE DETAILS -->
+        <md-card-content ng-if="deets.url.includes('people')">
+            <ul flex>
+                <li>Birth year: {{deets.birth_year}}</li>
+                <li>Homeworld: {{deets.homeworld}}</li>
+            </ul>
+            
+        </md-card-content>
+
+        <!-- Card content for FILMS DETAILS -->
+        <md-card-content ng-if="deets.url.includes('films')">
+            <ul flex>
+                <li>Birth year: {{deets.title}}</li>
+                <li>Homeworld: {{deets.homeworld}}</li>
+            </ul>
+        </md-card-content>
+    
+    </div>
+    <md-button class="md-accent md-raised" ng-click="fc.deleteFav(fav)">Delete</md-button>
 </md-card>
 
 

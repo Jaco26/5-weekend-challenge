@@ -54,6 +54,7 @@ function swapiSvc ($http) {
                 method: 'GET',
                 url: url,
             }).then((response) => {
+                response.data.showDeets = true;
                 self.returned.favDeets.push(response.data);
                 console.log(self.returned.favDeets);
             }).catch((error) => {
@@ -62,7 +63,9 @@ function swapiSvc ($http) {
         } 
     } // END self.getItemByURL
 
-    // SWAPIfavs Posts & Gets
+      /////////// //////////////////////
+     // SWAPIfavs Post, Get & Delete //
+    ///////////// ////////////////////
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
         let name;
@@ -96,5 +99,16 @@ function swapiSvc ($http) {
         }); // END $http
     } // END self.getFavs
 
+    self.deleteFav = (fav) => {
+        console.log(fav._id);
+        $http({
+            method: 'DELETE',
+            url: '/favorite/'+fav._id,
+        }).then( (response) => {
+            self.getFavs();
+        }).catch( (error) => {
+            console.log(error);            
+        }); // END $http
+    } // END self.deleteFav
 
-}
+} // END swapiSvc
