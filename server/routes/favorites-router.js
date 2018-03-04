@@ -25,9 +25,9 @@ router.get('/', (req, res) => {
     Favorite.find({}, (error, response) => {
         if(error){
             console.log('error on get favorites:', error);
-            res.send(response);
+            res.sendStatus(500);
         } else {
-            res.sendStatus(200);
+            res.send(response);
         }
     }); // END Favorite.find
 }); // END router /favorite GET

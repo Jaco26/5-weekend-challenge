@@ -1,2 +1,16 @@
+<p>This is where the favorites will be</p>
 
-    <p>This is where the favorites will be</p>
+<h1>Favorites</h1>
+
+<md-card ng-repeat="fav in fc.returned.FAVSdata">
+    <h3> {{fav.name}} </h3>
+    <md-button ng-click="fc.getItemByURL(fav.url)">More</md-button>
+    <md-card-content ng-repeat="deets in fc.returned.favDeets" ng-if="deets.url === fav.url">
+        <ul flex>
+            <li>Birth year: {{deets.birth_year}}</li>
+            <li>Homeworld: {{deets.homeworld}}</li>
+        </ul>
+    </md-card-content>
+</md-card>
+
+

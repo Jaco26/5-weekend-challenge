@@ -6,6 +6,7 @@ app.controller('FavoritesController', ['SWAPIService as swapi', function(swapi, 
 
     // SWAPIfavs $http function references
     self.getFavs = swapi.getFavs;
+    self.getItemByURL = swapi.getItemByURL;
 
 
 

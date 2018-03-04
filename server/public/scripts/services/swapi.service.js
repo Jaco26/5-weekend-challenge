@@ -4,8 +4,7 @@ function swapiSvc ($http) {
     const self = this;
     const baseUrl = 'https://swapi.co/api/';
 
-    self.returned = {SWAPIdata: [], FAVSdata: []}; 
-    console.log(self.returned);
+    self.returned = {SWAPIdata: [], FAVSdata: [], favDeets: []}; 
     
     // Star Wars API Gets
 
@@ -43,8 +42,27 @@ function swapiSvc ($http) {
         });
     }
 
-    // SWAPIfavs Posts & Gets
+    self.getItemByURL = (url) => {
+        let isValid = true;
+        for(let deet of self.returned.favDeets){
+            if(deet.url.match(url)){
+                isValid = false
+            }
+        }
+        if (isValid) { 
+            $http({
+                method: 'GET',
+                url: url,
+            }).then((response) => {
+                self.returned.favDeets.push(response.data);
+                console.log(self.returned.favDeets);
+            }).catch((error) => {
+                console.log(error);
+            }); // END $http
+        } 
+    } // END self.getItemByURL
 
+    // SWAPIfavs Posts & Gets
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
         let name;
