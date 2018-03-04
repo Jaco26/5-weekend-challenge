@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const schemas = require('../modules/schemas');
 
-const FavoritesSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
-    url: {type: String, required: true, unique: true}
-}); // END FavoritesSchema
-
-const Favorite = mongoose.model('Favorite', FavoritesSchema, 'favorites');
+// MODELS 
+const Comment = mongoose.model('Comment', schemas.commentSchema)
+const Favorite = mongoose.model('Favorite', schemas.favoriteSchema, 'favorites');
 
 router.post('/',  (req, res) => {
     const newFav = new Favorite(req.body);

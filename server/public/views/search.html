@@ -53,15 +53,15 @@
                     <li>Homeworld: {{result.homeworld}}</li>
                 </ul>
            
-            <md-card-actions layout="row" layout-align="start center">
-                <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
-            </md-card-actions>
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
+                </md-card-actions>
+            </div>
         </md-card>
 
         <!-- Planets Cards -->
-        <md-card ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
-               
                 <h3 layout-padding>{{result.name}}</h3>
                 <ul flex>
                     <li>Climate: {{result.climate}}</li>
@@ -71,7 +71,7 @@
                     <li>Surface water: {{result.surface_water}} </li>
                     <li>Terrain: {{result.terrain}}</li>
                 </ul>
-            
+            </div>
                 <md-card-actions layout="row" layout-align="start center">
                     <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
                 </md-card-actions>
@@ -79,43 +79,39 @@
 
 
         <!-- Species Cards -->
-        <md-card ng-show="result.url.includes('api/species')" ng-repeat="result in sc.returned.SWAPIdata.results">
-            <h6>Species Card</h6>
+        <md-card ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h4>{{result.name}}</h4>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
+            </md-card-actions>
         </md-card>
 
         <!-- Starships Cards -->
         <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h6>Starships Card</h6>
             <h4>{{result.name}}</h4>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
+            </md-card-actions>
         </md-card>
 
         <!-- Vehicles Cards -->
         <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h6>Vehicles Card</h6>
             <h4>{{result.name}}</h4>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
+            </md-card-actions>
         </md-card>
 
-       
-
-        
-        hi
     </section>
+
     <md-button ng-if="sc.returned.SWAPIdata.previous" class="md-raised" ng-click="sc.getPrevPage(sc.returned.SWAPIdata.prev)">Prev</md-button>
     <md-button ng-if="sc.returned.SWAPIdata.next" class="md-raised" ng-click="sc.getNextPage(sc.returned.SWAPIdata.next)">Next</md-button>
   
 </div>
 
 
-<!-- <div layout="row" layout-wrap layout-margin layout-align="center">
-    <md-button class="md-primary md-raised" ng-click="search.showAlert($event)">Alert Dialog</md-button>
-</div> 
 
-
-<div md-dialog id="popupContainer">
-    <div md-dialog-content >
-
-    </div>
-</div> -->
 
 

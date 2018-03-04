@@ -40,7 +40,7 @@ function swapiSvc ($http) {
         }).then((response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            // console.log(self.returned.SWAPIdata);
+            console.log(self.returned.SWAPIdata);
         }).catch((error) => {
             console.error('Error in self.searchSWAPI');
         });
@@ -86,6 +86,7 @@ function swapiSvc ($http) {
             }).then((response) => {
                 self.returned.favDeets.push(response.data);
                 console.log(self.returned.favDeets);
+                
                 getGIF(self.returned.favDeets[self.returned.favDeets.length - 1].name || self.returned.favDeets[self.returned.favDeets.length - 1].title);
             }).catch((error) => {
                 console.log(error);
@@ -151,8 +152,6 @@ function swapiSvc ($http) {
 
     function getGIF (name) {
         console.log(name);
-        
-
         $http({
             method: 'GET',
             url: searchGIPHYurl + name + apiKey + limit,

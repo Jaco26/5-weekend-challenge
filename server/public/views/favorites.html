@@ -24,6 +24,45 @@
             </ul>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
+
+        <!-- Card content for PLANETS DETAILS -->
+        <md-card-content ng-if="deets.url.includes('planets')">
+            <div layout="column">
+                <h3 layout-padding>{{deets.name}}</h3>
+                <ul flex>
+                    <li>Climate: {{deets.climate}}</li>
+                    <li>Diameter: {{deets.diameter}}</li>
+                    <li>Gravity: {{deets.gravity}}</li>
+                    <li>Orbital period: {{deets.orbital_period}}</li>
+                    <li>Surface water: {{deets.surface_water}} </li>
+                    <li>Terrain: {{deets.terrain}}</li>
+                </ul>
+            </div>
+            <img ng-src="{{deets.gif}}" alt="Gif">
+        </md-card-content>
+
+        <!-- Card content for SPECIES DETAILS -->
+        <md-card-content ng-if="deets.url.includes('species')">
+            <ul flex>
+                <li>Birth year: {{deets.title}}</li>
+                <li>Homeworld: {{deets.homeworld}}</li>
+            </ul>
+            <img ng-src="{{deets.gif}}" alt="Gif">
+        </md-card-content>
+
+        <!-- Card content for STARSHIPS DETAILS -->
+        <md-card-content ng-if="deets.url.includes('starships')">
+            <ul flex>
+                <li>Birth year: {{deets.title}}</li>
+                <li>Homeworld: {{deets.homeworld}}</li>
+            </ul>
+            <img ng-src="{{deets.gif}}" alt="Gif">
+        </md-card-content>
+
+
+
+
+
     
     </div>
     <md-button class="md-accent md-raised" ng-click="fc.deleteFav(fav)">Delete</md-button>
