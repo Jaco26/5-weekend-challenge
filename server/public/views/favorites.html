@@ -9,6 +9,13 @@
         
         <!-- Card content for PEOPLE DETAILS -->
         <md-card-content ng-if="deets.url.includes('people')">
+
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment)">Submit</md-button>
+            </md-input-container>
+
             <ul flex>
                 <li>Birth year: {{deets.birth_year}}</li>
                 <li>Homeworld: {{deets.homeworld}}</li>
