@@ -3,15 +3,15 @@ app.service('SWAPIService as swapi', ['$http', swapiSvc]);
 function swapiSvc ($http) {
     const self = this;
    
+    // RETURNED DATA from SWAPI and SWAPIfavs
+    self.returned = { SWAPIdata: [], FAVSdata: [], favDeets: [] }; 
 
-
-
+      ///////////////////////////
+     //// SWAPI calls //////////
+    /////////////////////////// 
     // SWAPI URLS
     const baseUrl = 'https://swapi.co/api/';
-
-    self.returned = {SWAPIdata: [], FAVSdata: [], favDeets: []}; 
     
-    // Star Wars API Gets
     self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
         console.log('whichResource', whichResource, 'searchQuery', searchQuery, 'wookiee', wookiee);
         let swapiQuery;
@@ -30,7 +30,7 @@ function swapiSvc ($http) {
         }).catch( (error) => {
             console.error('Error in self.searchSWAPI');
         });
-    }
+    } // END self.searchSWAPI
 
     self.getAll = (whichResource) => {
         let swapiQuery = baseUrl + whichResource;
@@ -40,11 +40,37 @@ function swapiSvc ($http) {
         }).then((response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            console.log(self.returned.SWAPIdata);
+            // console.log(self.returned.SWAPIdata);
         }).catch((error) => {
             console.error('Error in self.searchSWAPI');
         });
-    }
+    } // END self.getAll
+
+    self.getNextPage = (url) => {
+        $http({
+            method: 'GET',
+            url: url
+        }).then( (response) => {
+            self.returned.SWAPIdata = {};
+            self.returned.SWAPIdata = response.data;
+            console.log(self.returned.SWAPIdata);
+        }).catch( (error) => {
+            console.log(error); 
+        }); // END $http
+    } // END self.getNextPage
+
+    self.getPrevPage = (url) => {
+        $http({
+            method: 'GET',
+            url: url
+        }).then((response) => {
+            self.returned.SWAPIdata = {};
+            self.returned.SWAPIdata = response.data;
+            console.log(self.returned.SWAPIdata);
+        }).catch((error) => {
+            console.log(error);
+        }); // END $http
+    } // END self.getPrevPage
 
     self.getItemByURL = (url) => {
         let isValid = true;
@@ -70,8 +96,6 @@ function swapiSvc ($http) {
       /////////// //////////////////////
      // SWAPIfavs Post, Get & Delete //
     ///////////// ////////////////////
-
- 
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
         let name;
@@ -120,7 +144,6 @@ function swapiSvc ($http) {
       ///////////////////////////
      //// GIPHY CALLS //////////
     ///////////////////////////
-
     // GIPHY URLS
     const searchGIPHYurl = 'http://api.giphy.com/v1/gifs/search?q=';
     const apiKey = '&api_key=0rj09zTLmHbERPILRy44muwCAFJwgyCZ';
@@ -137,7 +160,7 @@ function swapiSvc ($http) {
             // console.log(response.data);
             // console.log(self.returned.favDeets[self.returned.favDeets.length - 1]);
             self.returned.favDeets[self.returned.favDeets.length - 1].gif = response.data.data[0].images.downsized_medium.url;
-            // console.log(self.returned.favDeets[1].gif);
+            console.log(self.returned.favDeets[1].gif);
         }).catch( (error) => {
             console.log(error); 
         }); // END $http

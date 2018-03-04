@@ -96,7 +96,14 @@
             <h4>{{result.name}}</h4>
         </md-card>
 
+       
+
+        
+        hi
     </section>
+    <md-button ng-if="sc.returned.SWAPIdata.previous" class="md-raised" ng-click="sc.getPrevPage(sc.returned.SWAPIdata.prev)">Prev</md-button>
+    <md-button ng-if="sc.returned.SWAPIdata.next" class="md-raised" ng-click="sc.getNextPage(sc.returned.SWAPIdata.next)">Next</md-button>
+  
 </div>
 
 

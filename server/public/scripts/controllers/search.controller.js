@@ -38,6 +38,8 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     // swapi $http function references
     self.searchSWAPI = swapi.searchSWAPI;
     self.getAll = swapi.getAll;
+    self.getNextPage = swapi.getNextPage;
+    self.getPrevPage = swapi.getPrevPage;
 
 
     // SEND FAVORITES TO DATABASE
