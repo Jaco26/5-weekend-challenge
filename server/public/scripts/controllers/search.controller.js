@@ -41,15 +41,39 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
 
 
     // SEND FAVORITES TO DATABASE
-    self.favoriteThis = (result) => {
-        console.log(result);
-        
-    }
+    self.addFav = swapi.addFav
 
 
 
 
-    // self.showAlert = function (ev) {
+  
+
+
+      // swapi $http calls
+}]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // self.showAlert = function (ev) {
     //     $mdDialog.show(
     //         $mdDialog.alert()
     //             .parent(angular.element(document.querySelector('#popupContainer')))
@@ -61,11 +85,3 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     //                 .targetEvent(ev)
     //     )  
     // } // END self.showAlert
-
-
-
-      // swapi $http calls
-}]);
-
-
-

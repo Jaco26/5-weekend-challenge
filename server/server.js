@@ -19,7 +19,8 @@ mongoose.connection.on('error', () => {
 mongoose.connect(databaseUrl); // connect to my database!!!
 
 // ROUTER ROUTER ROUTER
-
+const favoriteRouter = require('./routes/favorites-router');
+app.use('/favorite', favoriteRouter);
 
 // Static files
 app.use(express.static('server/public'));

@@ -23,7 +23,7 @@
 <div>
     <section class="results-interface">
         <!-- Films Cards -->
-        <md-card ng-show="result.url.includes('films')" ng-repeat="result in search.returned.data.results | orderBy: 'episode_id'">
+        <md-card ng-show="result.url.includes('films')" ng-repeat="result in search.returned.SWAPIdata.results | orderBy: 'episode_id'">
             <div layout="column">
                 <h3 layout-padding >Episode {{result.episode_id}}: {{result.title}} </h3>
                 <ul flex>
@@ -39,13 +39,13 @@
                     </div>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="start center">
-                    <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
+                    <md-button class="md-primary md-raised" ng-click="search.addFav(result)">Favorite</md-button>
                 </md-card-actions>
         </md-card>
 
 
         <!-- People Cards -->
-        <md-card ng-show="result.url.includes('people')" ng-repeat="result in search.returned.data.results">
+        <md-card ng-show="result.url.includes('people')" ng-repeat="result in search.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
                 <ul flex>
@@ -54,12 +54,12 @@
                 </ul>
            
             <md-card-actions layout="row" layout-align="start center">
-                <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
+                <md-button class="md-primary md-raised" ng-click="search.addFav(result)">Favorite</md-button>
             </md-card-actions>
         </md-card>
 
         <!-- Planets Cards -->
-        <md-card ng-show="result.url.includes('films')" ng-repeat="result in search.returned.data.results">
+        <md-card ng-show="result.url.includes('films')" ng-repeat="result in search.returned.SWAPIdata.results">
             <div layout="column">
                
                 <h3 layout-padding>{{result.name}}</h3>
@@ -73,25 +73,25 @@
                 </ul>
             
                 <md-card-actions layout="row" layout-align="start center">
-                    <md-button class="md-primary md-raised" ng-click="search.favoriteThis(result)">Favorite</md-button>
+                    <md-button class="md-primary md-raised" ng-click="search.addFav(result)">Favorite</md-button>
                 </md-card-actions>
         </md-card>
 
 
         <!-- Species Cards -->
-        <md-card ng-show="result.url.includes('api/species')" ng-repeat="result in search.returned.data.results">
+        <md-card ng-show="result.url.includes('api/species')" ng-repeat="result in search.returned.SWAPIdata.results">
             <h6>Species Card</h6>
             <h4>{{result.name}}</h4>
         </md-card>
 
         <!-- Starships Cards -->
-        <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in search.returned.data.results">
+        <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in search.returned.SWAPIdata.results">
             <h6>Starships Card</h6>
             <h4>{{result.name}}</h4>
         </md-card>
 
         <!-- Vehicles Cards -->
-        <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in search.returned.data.results">
+        <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in search.returned.SWAPIdata.results">
             <h6>Vehicles Card</h6>
             <h4>{{result.name}}</h4>
         </md-card>
