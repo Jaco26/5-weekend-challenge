@@ -14,8 +14,8 @@
                 <input type="text" placeholder="{{search.searchBarPlaceholder}}" ng-model="seachQuery">
             </md-input-container>
         
-            <label for="wookieeYes">Format my results in Wookiee</label>
-            <input class="md-primary" type="checkbox" ng-model="sc.wookieeCheckBox.value1"  name="wookieeYess">
+            <!-- <label for="wookieeYes">Format my results in Wookiee</label>
+            <input class="md-primary" type="checkbox" ng-model="sc.wookieeCheckBox.value1"  name="wookieeYess"> -->
             <md-button class="md-raised md-accent search-btn" md-no-ink="true" ng-click="sc.searchSWAPI(whichResource, seachQuery, sc.wookieeCheckBox.value1)">Search</md-button>
             <md-button class="md-raised md-primary search-all-btn" md-no-ink="true" ng-click="sc.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
         </md-content>
@@ -25,7 +25,7 @@
 <div>
     <section class="results-interface">
         <!-- Films Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results | orderBy: 'episode_id'">
+        <md-card ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results | orderBy: 'episode_id'">
             <div layout="column">
                 <h3 layout-padding >Episode {{result.episode_id}}: {{result.title}} </h3>
                 
@@ -49,7 +49,7 @@
 
 
         <!-- People Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('people')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card ng-show="result.url.includes('people')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
                 
@@ -66,7 +66,7 @@
 
 
         <!-- Planets Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
                <ul flex>
@@ -85,8 +85,8 @@
 
 
         <!-- Species Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
-            <h4>{{result.name}}</h4>
+        <md-card ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
+            <h3 layout-padding>{{result.name}}</h3>
 
              <ul flex>
                 <li><strong>Average height:</strong> {{result.average_height}}</li>
@@ -101,8 +101,8 @@
 
 
         <!-- Starships Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
-            <h4>{{result.name}}</h4>
+        <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
+            <h3 layout-padding>{{result.name}}</h3>
 
                 <li><strong>MGLT:</strong> {{result.MGLT}}</li>
                 <li><strong>Cargo capacity:</strong> {{result.cargo_capacity}}</li>
@@ -123,9 +123,9 @@
 
 
         <!-- Vehicles Cards -->
-        <md-card class="search-result" ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
        
-            <h4>{{result.name}}</h4>
+            <h3 layout-padding>{{result.name}}</h3>
             <ul flex>
               <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
                 <li><strong>Cargo capacity:</strong> {{result.cargo_capacity}}</li>

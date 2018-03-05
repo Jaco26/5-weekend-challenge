@@ -46,9 +46,10 @@ body {
 }
 
 md-card {
-  background-color: rgb(71, 71, 71)
+  background-color: rgb(71, 71, 71);
+  color: white;
 }
 
-.search-result {
+label {
   color: white;
 }
