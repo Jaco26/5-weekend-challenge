@@ -95,7 +95,7 @@ function swapiSvc ($http) {
     } // END self.getItemByURL
 
       /////////// //////////////////////
-     // SWAPIfavs Post, Get & Delete //
+     // SWAPIfavs Post, Get, Put & Delete //
     ///////////// ////////////////////
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
@@ -141,6 +141,21 @@ function swapiSvc ($http) {
             console.log(error);            
         }); // END $http
     } // END self.deleteFav
+
+    self.submitComment = (comment, id) => {
+        console.log(comment, id);
+        $http({
+            method: 'PUT',
+            url: '/favorite/'+id,
+            data: {comments: comment}
+        }).then ( (response) => {
+           // self.getComments();
+        }).catch( (error) => {
+            console.log(error);    
+        }); // END $http
+    } // END self.submitComment
+
+
 
       ///////////////////////////
      //// GIPHY CALLS //////////

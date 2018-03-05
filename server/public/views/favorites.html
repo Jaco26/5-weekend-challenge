@@ -9,11 +9,10 @@
         
         <!-- Card content for PEOPLE DETAILS -->
         <md-card-content ng-if="deets.url.includes('people')">
-
             <md-input-container>
                 <label>Comments:</label>
                 <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment)">Submit</md-button>
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
             </md-input-container>
 
             <ul flex>
@@ -23,17 +22,33 @@
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
 
+
+
         <!-- Card content for FILMS DETAILS -->
         <md-card-content ng-if="deets.url.includes('films')">
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+            </md-input-container>
+
             <ul flex>
-                <li>Birth year: {{deets.title}}</li>
+                <li>Director: {{deets.director}}</li>
                 <li>Homeworld: {{deets.homeworld}}</li>
             </ul>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
 
+
+
         <!-- Card content for PLANETS DETAILS -->
         <md-card-content ng-if="deets.url.includes('planets')">
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+            </md-input-container>
+
             <div layout="column">
                 <h3 layout-padding>{{deets.name}}</h3>
                 <ul flex>
@@ -48,17 +63,34 @@
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
 
+
+
         <!-- Card content for SPECIES DETAILS -->
         <md-card-content ng-if="deets.url.includes('species')">
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+            </md-input-container>
+
+
             <ul flex>
                 <li>Birth year: {{deets.title}}</li>
                 <li>Homeworld: {{deets.homeworld}}</li>
             </ul>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
+
+
 
         <!-- Card content for STARSHIPS DETAILS -->
         <md-card-content ng-if="deets.url.includes('starships')">
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+            </md-input-container>
+
             <ul flex>
                 <li>Birth year: {{deets.title}}</li>
                 <li>Homeworld: {{deets.homeworld}}</li>
@@ -67,10 +99,22 @@
         </md-card-content>
 
 
+        <!-- Card content for VEHICLES DETAILS -->
+        <md-card-content ng-if="deets.url.includes('vehicles')">
+            <md-input-container>
+                <label>Comments:</label>
+                <input ng-model="comment">
+                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+            </md-input-container>
+        
+            <ul flex>
+                <li>Birth year: {{deets.title}}</li>
+                <li>Homeworld: {{deets.homeworld}}</li>
+            </ul>
+            <img ng-src="{{deets.gif}}" alt="Gif">
+        </md-card-content>
 
 
-
-    
     </div>
     <md-button class="md-accent md-raised" ng-click="fc.deleteFav(fav)">Delete</md-button>
 </md-card>

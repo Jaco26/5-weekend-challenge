@@ -8,7 +8,7 @@ app.controller('FavoritesController', ['SWAPIService as swapi', function(swapi, 
     self.getFavs = swapi.getFavs;
     self.getItemByURL = swapi.getItemByURL;
     self.deleteFav = swapi.deleteFav;
-
+    self.submitComment = swapi.submitComment;
 
 
     // ON LOAD

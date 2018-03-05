@@ -45,5 +45,37 @@ router.delete('/:id', (req, res) => {
     )
 }); // END router /favorite/:id DELETE
 
+// ADD COMMENT 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('REQ.BODY', req.body);
+    const newComment = new Comment(req.body);
+    console.log('NEW COMMENT', newComment);
+    newComment.save( (error, commentDoc) => {
+        if(error){
+            res.sendStatus(500);  
+        } else {
+            console.log('commentDoc._id', commentDoc.comments);
+            
+            Favorite.findByIdAndUpdate(
+                { "_id": id },
+                { $push: { comments: {comments: commentDoc.comments }} },
+                (pusherror, doc) => {
+                    if (pusherror) {
+                        console.log('PUSH ERROR IN router /favorite/:id PUT', pusherror);
+                        res.sendStatus(500);
+                    } else {
+                        res.sendStatus(200);
+                        console.log('updated fav Document', doc);
+
+                    }
+                }
+            )
+        }
+    })
+    
+   
+}); // END router /favorite/:id PUT
+
 
 module.exports = router;
