@@ -1,10 +1,12 @@
 <div layout="row">
   
-    <section class="search-interface">
-        <md-content layout-padding>
-            <h3>Search SWAPI</h3>
+    <h1 layout-padding>Search</h1>
+    <section >
+        <md-content class="search-interface" layout-padding>
+            
             <md-input-container>
-                <md-select ng-model="whichResource" ng-change="sc.searchField(whichResource)">
+                <label for="resource-selector">Select which resource you want to search for</label>
+                <md-select id="resource-selector" ng-model="whichResource" ng-change="sc.searchField(whichResource)">
                     <md-option ng-value="resource" ng-repeat="resource in sc.resources.list">{{resource}}</md-option>
                 </md-select>
             </md-input-container>
@@ -14,8 +16,8 @@
         
             <label for="wookieeYes">Format my results in Wookiee</label>
             <input class="md-primary" type="checkbox" ng-model="sc.wookieeCheckBox.value1"  name="wookieeYess">
-            <md-button class="md-raised md-accent" md-no-ink="true" ng-click="sc.searchSWAPI(whichResource, seachQuery, sc.wookieeCheckBox.value1)">Search</md-button>
-            <md-button class="md-raised md-primary" md-no-ink="true" ng-click="sc.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
+            <md-button class="md-raised md-accent search-btn" md-no-ink="true" ng-click="sc.searchSWAPI(whichResource, seachQuery, sc.wookieeCheckBox.value1)">Search</md-button>
+            <md-button class="md-raised md-primary search-all-btn" md-no-ink="true" ng-click="sc.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
         </md-content>
     </section>
 </div>
@@ -23,7 +25,7 @@
 <div>
     <section class="results-interface">
         <!-- Films Cards -->
-        <md-card ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results | orderBy: 'episode_id'">
+        <md-card class="search-result" ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results | orderBy: 'episode_id'">
             <div layout="column">
                 <h3 layout-padding >Episode {{result.episode_id}}: {{result.title}} </h3>
                 
@@ -47,7 +49,7 @@
 
 
         <!-- People Cards -->
-        <md-card ng-show="result.url.includes('people')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card class="search-result" ng-show="result.url.includes('people')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
                 
@@ -64,7 +66,7 @@
 
 
         <!-- Planets Cards -->
-        <md-card ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card class="search-result" ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
                <ul flex>
@@ -83,7 +85,7 @@
 
 
         <!-- Species Cards -->
-        <md-card ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card class="search-result" ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h4>{{result.name}}</h4>
 
              <ul flex>
@@ -99,7 +101,7 @@
 
 
         <!-- Starships Cards -->
-        <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card class="search-result" ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h4>{{result.name}}</h4>
 
                 <li><strong>MGLT:</strong> {{result.MGLT}}</li>
@@ -121,7 +123,7 @@
 
 
         <!-- Vehicles Cards -->
-        <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
+        <md-card class="search-result" ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
        
             <h4>{{result.name}}</h4>
             <ul flex>

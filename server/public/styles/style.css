@@ -1,24 +1,54 @@
-.results-interface {
-    background: linear-gradient(to right, #ffee, #eeff);
+body {
+  background-color: teal;
 }
 
-.dialogdemoBasicUsage #popupContainer {
-  position: relative; }
+.results-interface {
+  background-color: teal;
+}
 
-.dialogdemoBasicUsage .footer {
-  width: 100%;
-  text-align: center;
-  margin-left: 20px; }
+.search-interface {
+  background-color: teal !important;
+}
 
-.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
-  font-size: 0.8em;
-  margin-top: 50px; }
+.favs-interface {
+  background-color: teal;
+}
 
-.dialogdemoBasicUsage button {
-  width: 200px; }
+.delete-btn {
+  width: 90px;
+  color: rgb(255, 32, 32) !important;
+  background-color: rgb(68, 63, 63) !important;
+}
 
-.dialogdemoBasicUsage div#status {
-  color: #c60008; }
+.more-info-btn {
+  width: 130px;
+  color: rgb(104, 104, 255) !important;
+  background-color: beige !important;
+}
 
-.dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
-  margin-bottom: 0; }
+.search-btn {
+  width: 100px;
+  color: rgb(242, 104, 255) !important;
+  background-color: rgb(255, 255, 151) !important;
+}
+
+.search-all-btn {
+  width: 140px;
+  color: rgb(104, 207, 255) !important;
+  background-color: rgb(255, 255, 36) !important;
+}
+
+.card-header {
+  color: rgb(0, 255, 106);
+  text-shadow: 1px 1px rgb(255, 10, 255);
+  border: 2px outset black;
+  box-shadow: 1px 1px rgb(19, 243, 57);
+}
+
+md-card {
+  background-color: rgb(71, 71, 71)
+}
+
+.search-result {
+  color: white;
+}

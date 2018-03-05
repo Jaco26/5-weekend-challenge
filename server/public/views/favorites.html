@@ -1,190 +1,228 @@
-<p>This is where the favorites will be</p>
 
-<h1>Favorites</h1>
+<h1 layout-padding>Favorites</h1>
 
-<md-card ng-repeat="fav in fc.returned.FAVSdata">
-    <h3> {{fav.name}} </h3>
-    <md-button class="md-primary md-raised" ng-click="fc.getItemByURL(fav.url)">Get More Info</md-button>
-    <div ng-repeat="deets in fc.returned.favDeets" ng-if="deets.url === fav.url">
-        
-        <!-- Card content for PEOPLE DETAILS -->
-        <md-card-content ng-if="deets.url.includes('people')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
-            
-            <md-card-content flex="50">
-                <ul>
-                    <li><strong>Birth year:</strong> {{deets.birth_year}}</li>
-                    <li><strong>Eye color:</strong> {{deets.eye_color}}</li>
-                </ul>
-            </md-card-content>
-        
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
-                </ul>
-            </div>
-          
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-        <!-- Card content for FILMS DETAILS -->
-        <md-card-content ng-if="deets.url.includes('films')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
-
-            <ul flex>
-                <li><strong>Release date:</strong> {{deets.release_date}}</li>
-                <li><strong>Director:</strong> {{deets.director}}</li>
-                <li><strong>Producer(s):</strong> {{deets.producer}}</li>
-            </ul>
-
-            <md-card-content layout="column">
-                <div flex="30">
-                    <h3>Opening Crawl</h3>
-                    <p>{{deets.opening_crawl}}</p>
+<div layout="column" class="favs-interface">
+    <md-card  layout-wrap layout-margin layout-padding layout-align="center" ng-repeat="fav in fc.returned.FAVSdata">
+        <h3 class="card-header"> {{fav.name}} </h3>
+        <md-button class="md-raised more-info-btn" ng-click="fc.getItemByURL(fav.url)">Get More Info</md-button>
+        <md-button class="md-accent md-raised delete-btn" ng-click="fc.deleteFav(fav)">Delete</md-button>
+        <div ng-repeat="deets in fc.returned.favDeets" ng-if="deets.url === fav.url">
+    
+            <!-- Card content for PEOPLE DETAILS -->
+            <md-card-content ng-if="deets.url.includes('people')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
+                <md-card-content flex="50">
+                    <ul>
+                        <li>
+                            <strong>Birth year:</strong> {{deets.birth_year}}</li>
+                        <li>
+                            <strong>Eye color:</strong> {{deets.eye_color}}</li>
+                    </ul>
+                </md-card-content>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
                 </div>
+    
+                <img ng-src="{{deets.gif}}" alt="Gif">
             </md-card-content>
-
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
-                </ul>
-            </div>
-
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-        <!-- Card content for PLANETS DETAILS -->
-        <md-card-content ng-if="deets.url.includes('planets')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
-
-            <div layout="column">
-                <h3 layout-padding>{{deets.name}}</h3>
+    
+    
+            <!-- Card content for FILMS DETAILS -->
+            <md-card-content ng-if="deets.url.includes('films')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
                 <ul flex>
-                    <li><strong>Climate:</strong> {{deets.climate}}</li>
-                    <li><strong>Diameter:</strong> {{deets.diameter}}</li>
-                    <li><strong>Gravity:</strong> {{deets.gravity}}</li>
-                    <li><strong>Orbital period:</strong> {{deets.orbital_period}}</li>
-                    <li><strong>Surface water:</strong> {{deets.surface_water}} </li>
-                    <li><strong>Terrain:</strong> {{deets.terrain}}</li>
+                    <li>
+                        <strong>Release date:</strong> {{deets.release_date}}</li>
+                    <li>
+                        <strong>Director:</strong> {{deets.director}}</li>
+                    <li>
+                        <strong>Producer(s):</strong> {{deets.producer}}</li>
                 </ul>
-            </div>
-
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+    
+                <md-card-content layout="column">
+                    <div flex="30">
+                        <h3>Opening Crawl</h3>
+                        <p>{{deets.opening_crawl}}</p>
+                    </div>
+                </md-card-content>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
+                </div>
+    
+                <img ng-src="{{deets.gif}}" alt="Gif">
+            </md-card-content>
+    
+    
+            <!-- Card content for PLANETS DETAILS -->
+            <md-card-content ng-if="deets.url.includes('planets')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
+                <div layout="column">
+                    <h3 layout-padding>{{deets.name}}</h3>
+                    <ul flex>
+                        <li>
+                            <strong>Climate:</strong> {{deets.climate}}</li>
+                        <li>
+                            <strong>Diameter:</strong> {{deets.diameter}}</li>
+                        <li>
+                            <strong>Gravity:</strong> {{deets.gravity}}</li>
+                        <li>
+                            <strong>Orbital period:</strong> {{deets.orbital_period}}</li>
+                        <li>
+                            <strong>Surface water:</strong> {{deets.surface_water}} </li>
+                        <li>
+                            <strong>Terrain:</strong> {{deets.terrain}}</li>
+                    </ul>
+                </div>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
+                </div>
+    
+                <img ng-src="{{deets.gif}}" alt="Gif">
+            </md-card-content>
+    
+    
+            <!-- Card content for SPECIES DETAILS -->
+            <md-card-content ng-if="deets.url.includes('species')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
+                <ul flex>
+                    <li>
+                        <strong>Average height:</strong> {{deets.average_height}}</li>
+                    <li>
+                        <strong>Average lifespan:</strong> {{deets.average_lifespan}}</li>
+                    <li>
+                        <strong>Language:</strong> {{deets.language}}</li>
                 </ul>
-            </div>
-
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-        <!-- Card content for SPECIES DETAILS -->
-        <md-card-content ng-if="deets.url.includes('species')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
-
-            <ul flex>
-                <li><strong>Average height:</strong> {{deets.average_height}}</li>
-                <li><strong>Average lifespan:</strong> {{deets.average_lifespan}}</li>
-                <li><strong>Language:</strong> {{deets.language}}</li>
-            </ul>
-
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
+                </div>
+                <img ng-src="{{deets.gif}}" alt="Gif">
+            </md-card-content>
+    
+    
+            <!-- Card content for STARSHIPS DETAILS -->
+            <md-card-content ng-if="deets.url.includes('starships')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
+                <ul flex>
+                    <li>
+                        <strong>MGLT:</strong> {{deets.MGLT}}</li>
+                    <li>
+                        <strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
+                    <li>
+                        <strong>Consumables:</strong> {{deets.consumables}}</li>
+                    <li>
+                        <strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
+                    <li>
+                        <strong>Crew:</strong> {{deets.crew}}</li>
+                    <li>
+                        <strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
+                    <li>
+                        <strong>Length:</strong> {{deets.length}}</li>
+                    <li>
+                        <strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
+                    <li>
+                        <strong>Model:</strong> {{deets.model}}</li>
+                    <li>
+                        <strong>Passengers:</strong> {{deets.passengers}}</li>
+                    <li>
+                        <strong>Starship class:</strong> {{deets.starship_class}}</li>
                 </ul>
-            </div>
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-        <!-- Card content for STARSHIPS DETAILS -->
-        <md-card-content ng-if="deets.url.includes('starships')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
-
-            <ul flex>
-                <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
-                <li><strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
-                <li><strong>Consumables:</strong> {{deets.consumables}}</li>
-                <li><strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
-                <li><strong>Crew:</strong> {{deets.crew}}</li>
-                <li><strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
-                <li><strong>Length:</strong> {{deets.length}}</li>
-                <li><strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
-                <li><strong>Model:</strong> {{deets.model}}</li>
-                <li><strong>Passengers:</strong> {{deets.passengers}}</li>
-                <li><strong>Starship class:</strong> {{deets.starship_class}}</li>
-            </ul>
-
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
+                </div>
+                <img ng-src="{{deets.gif}}" alt="Gif">
+            </md-card-content>
+    
+    
+            <!-- Card content for VEHICLES DETAILS -->
+            <md-card-content ng-if="deets.url.includes('vehicles')">
+                <md-input-container>
+                    <label>Comments:</label>
+                    <input ng-model="comment">
+                    <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
+                </md-input-container>
+    
+                <ul flex>
+                    <li>
+                        <strong>MGLT:</strong> {{deets.MGLT}}</li>
+                    <li>
+                        <strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
+                    <li>
+                        <strong>Consumables:</strong> {{deets.consumables}}</li>
+                    <li>
+                        <strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
+                    <li>
+                        <strong>Crew:</strong> {{deets.crew}}</li>
+                    <li>
+                        <strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
+                    <li>
+                        <strong>Length:</strong> {{deets.length}}</li>
+                    <li>
+                        <strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
+                    <li>
+                        <strong>Model:</strong> {{deets.model}}</li>
+                    <li>
+                        <strong>Passengers:</strong> {{deets.passengers}}</li>
                 </ul>
-            </div>
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-        <!-- Card content for VEHICLES DETAILS -->
-        <md-card-content ng-if="deets.url.includes('vehicles')">
-            <md-input-container>
-                <label>Comments:</label>
-                <input ng-model="comment">
-                <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
-            </md-input-container>
+    
+                <div flex="50">
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                    </ul>
+                </div>
+                <img ng-src="{{deets.gif}}" alt="Gif">
+            </md-card-content>
+    
+    
+        </div>
         
-            <ul flex>
-              <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
-                <li><strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
-                <li><strong>Consumables:</strong> {{deets.consumables}}</li>
-                <li><strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
-                <li><strong>Crew:</strong> {{deets.crew}}</li>
-                <li><strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
-                <li><strong>Length:</strong> {{deets.length}}</li>
-                <li><strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
-                <li><strong>Model:</strong> {{deets.model}}</li>
-                <li><strong>Passengers:</strong> {{deets.passengers}}</li>
-            </ul>
+    </md-card>
+</div>
 
-            <div flex="50">
-                <h3>Comments:</h3>
-                <ul>
-                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
-                </ul>
-            </div>
-            <img ng-src="{{deets.gif}}" alt="Gif">
-        </md-card-content>
-
-
-    </div>
-    <md-button class="md-accent md-raised" ng-click="fc.deleteFav(fav)">Delete</md-button>
-</md-card>
 
 
