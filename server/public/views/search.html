@@ -26,11 +26,13 @@
         <md-card ng-show="result.url.includes('films')" ng-repeat="result in sc.returned.SWAPIdata.results | orderBy: 'episode_id'">
             <div layout="column">
                 <h3 layout-padding >Episode {{result.episode_id}}: {{result.title}} </h3>
+                
                 <ul flex>
-                    <li>Release date: {{result.release_date}}</li>
-                    <li>Director: {{result.director}}</li>
-                    <li>Producer(s): {{result.producer}}</li>
+                    <li><strong>Release date:</strong> {{result.release_date}}</li>
+                    <li><strong>Director:</strong> {{result.director}}</li>
+                    <li><strong>Producer(s):</strong> {{result.producer}}</li>
                 </ul>
+                
             </div>
                 <md-card-content layout="column">
                     <div flex="30">
@@ -48,9 +50,10 @@
         <md-card ng-show="result.url.includes('people')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
-                <ul flex>
-                    <li>Birth year: {{result.birth_year}}</li>
-                    <li>Homeworld: {{result.homeworld}}</li>
+                
+                <ul>
+                    <li><strong>Birth year:</strong> {{result.birth_year}}</li>
+                    <li><strong>Eye color:</strong> {{result.eye_color}}</li>
                 </ul>
            
                 <md-card-actions layout="row" layout-align="start center">
@@ -59,17 +62,18 @@
             </div>
         </md-card>
 
+
         <!-- Planets Cards -->
         <md-card ng-show="result.url.includes('planets')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <div layout="column">
                 <h3 layout-padding>{{result.name}}</h3>
-                <ul flex>
-                    <li>Climate: {{result.climate}}</li>
-                    <li>Diameter: {{result.diameter}}</li>
-                    <li>Gravity: {{result.gravity}}</li>
-                    <li>Orbital period: {{result.orbital_period}}</li>
-                    <li>Surface water: {{result.surface_water}} </li>
-                    <li>Terrain: {{result.terrain}}</li>
+               <ul flex>
+                    <li><strong>Climate:</strong> {{result.climate}}</li>
+                    <li><strong>Diameter:</strong> {{result.diameter}}</li>
+                    <li><strong>Gravity:</strong> {{result.gravity}}</li>
+                    <li><strong>Orbital period:</strong> {{result.orbital_period}}</li>
+                    <li><strong>Surface water:</strong> {{result.surface_water}} </li>
+                    <li><strong>Terrain:</strong> {{result.terrain}}</li>
                 </ul>
             </div>
                 <md-card-actions layout="row" layout-align="start center">
@@ -81,24 +85,58 @@
         <!-- Species Cards -->
         <md-card ng-show="result.url.includes('species')" ng-repeat="result in sc.returned.SWAPIdata.results">
             <h4>{{result.name}}</h4>
+
+             <ul flex>
+                <li><strong>Average height:</strong> {{result.average_height}}</li>
+                <li><strong>Average lifespan:</strong> {{result.average_lifespan}}</li>
+                <li><strong>Language:</strong> {{result.language}}</li>
+            </ul>
+
             <md-card-actions layout="row" layout-align="start center">
                 <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
             </md-card-actions>
         </md-card>
+
 
         <!-- Starships Cards -->
         <md-card ng-show="result.url.includes('api/starships')" ng-repeat="result in sc.returned.SWAPIdata.results">
-            <h6>Starships Card</h6>
             <h4>{{result.name}}</h4>
+
+                <li><strong>MGLT:</strong> {{result.MGLT}}</li>
+                <li><strong>Cargo capacity:</strong> {{result.cargo_capacity}}</li>
+                <li><strong>Consumables:</strong> {{result.consumables}}</li>
+                <li><strong>Cost in credits:</strong> {{result.cost_in_credits}}</li>
+                <li><strong>Crew:</strong> {{result.crew}}</li>
+                <li><strong>Hyperdrive rating:</strong> {{result.hyperdrive_rating}}</li>
+                <li><strong>Length:</strong> {{result.length}}</li>
+                <li><strong>Manufacturer:</strong> {{result.manufacturer}}</li>
+                <li><strong>Model:</strong> {{result.model}}</li>
+                <li><strong>Passengers:</strong> {{result.passengers}}</li>
+                <li><strong>Starship class:</strong> {{result.starship_class}}</li>
+
             <md-card-actions layout="row" layout-align="start center">
                 <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
             </md-card-actions>
         </md-card>
 
+
         <!-- Vehicles Cards -->
         <md-card ng-show="result.url.includes('api/vehicles')" ng-repeat="result in sc.returned.SWAPIdata.results">
-            <h6>Vehicles Card</h6>
+       
             <h4>{{result.name}}</h4>
+            <ul flex>
+              <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
+                <li><strong>Cargo capacity:</strong> {{result.cargo_capacity}}</li>
+                <li><strong>Consumables:</strong> {{result.consumables}}</li>
+                <li><strong>Cost in credits:</strong> {{result.cost_in_credits}}</li>
+                <li><strong>Crew:</strong> {{result.crew}}</li>
+                <li><strong>Hyperdrive rating:</strong> {{result.hyperdrive_rating}}</li>
+                <li><strong>Length:</strong> {{result.length}}</li>
+                <li><strong>Manufacturer:</strong> {{result.manufacturer}}</li>
+                <li><strong>Model:</strong> {{result.model}}</li>
+                <li><strong>Passengers:</strong> {{result.passengers}}</li>
+            </ul>
+
             <md-card-actions layout="row" layout-align="start center">
                 <md-button class="md-primary md-raised" ng-click="sc.addFav(result)">Favorite</md-button>
             </md-card-actions>

@@ -32,7 +32,6 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
 
     // swapi returned data object
     self.returned = swapi.returned
-    console.log(self.returned);
     
 
     // swapi $http function references

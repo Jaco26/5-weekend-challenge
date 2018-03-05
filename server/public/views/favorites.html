@@ -14,14 +14,23 @@
                 <input ng-model="comment">
                 <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
             </md-input-container>
-
-            <ul flex>
-                <li>Birth year: {{deets.birth_year}}</li>
-                <li>Homeworld: {{deets.homeworld}}</li>
-            </ul>
+            
+            <md-card-content flex="50">
+                <ul>
+                    <li><strong>Birth year:</strong> {{deets.birth_year}}</li>
+                    <li><strong>Eye color:</strong> {{deets.eye_color}}</li>
+                </ul>
+            </md-card-content>
+        
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
+          
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
-
 
 
         <!-- Card content for FILMS DETAILS -->
@@ -33,12 +42,27 @@
             </md-input-container>
 
             <ul flex>
-                <li>Director: {{deets.director}}</li>
-                <li>Homeworld: {{deets.homeworld}}</li>
+                <li><strong>Release date:</strong> {{deets.release_date}}</li>
+                <li><strong>Director:</strong> {{deets.director}}</li>
+                <li><strong>Producer(s):</strong> {{deets.producer}}</li>
             </ul>
+
+            <md-card-content layout="column">
+                <div flex="30">
+                    <h3>Opening Crawl</h3>
+                    <p>{{deets.opening_crawl}}</p>
+                </div>
+            </md-card-content>
+
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
+
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
-
 
 
         <!-- Card content for PLANETS DETAILS -->
@@ -52,17 +76,24 @@
             <div layout="column">
                 <h3 layout-padding>{{deets.name}}</h3>
                 <ul flex>
-                    <li>Climate: {{deets.climate}}</li>
-                    <li>Diameter: {{deets.diameter}}</li>
-                    <li>Gravity: {{deets.gravity}}</li>
-                    <li>Orbital period: {{deets.orbital_period}}</li>
-                    <li>Surface water: {{deets.surface_water}} </li>
-                    <li>Terrain: {{deets.terrain}}</li>
+                    <li><strong>Climate:</strong> {{deets.climate}}</li>
+                    <li><strong>Diameter:</strong> {{deets.diameter}}</li>
+                    <li><strong>Gravity:</strong> {{deets.gravity}}</li>
+                    <li><strong>Orbital period:</strong> {{deets.orbital_period}}</li>
+                    <li><strong>Surface water:</strong> {{deets.surface_water}} </li>
+                    <li><strong>Terrain:</strong> {{deets.terrain}}</li>
                 </ul>
             </div>
+
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
+
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
-
 
 
         <!-- Card content for SPECIES DETAILS -->
@@ -73,14 +104,20 @@
                 <md-button ng-click="fc.submitComment(comment, fav._id)">Submit</md-button>
             </md-input-container>
 
-
             <ul flex>
-                <li>Birth year: {{deets.title}}</li>
-                <li>Homeworld: {{deets.homeworld}}</li>
+                <li><strong>Average height:</strong> {{deets.average_height}}</li>
+                <li><strong>Average lifespan:</strong> {{deets.average_lifespan}}</li>
+                <li><strong>Language:</strong> {{deets.language}}</li>
             </ul>
+
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
-
 
 
         <!-- Card content for STARSHIPS DETAILS -->
@@ -92,9 +129,25 @@
             </md-input-container>
 
             <ul flex>
-                <li>Birth year: {{deets.title}}</li>
-                <li>Homeworld: {{deets.homeworld}}</li>
+                <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
+                <li><strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
+                <li><strong>Consumables:</strong> {{deets.consumables}}</li>
+                <li><strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
+                <li><strong>Crew:</strong> {{deets.crew}}</li>
+                <li><strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
+                <li><strong>Length:</strong> {{deets.length}}</li>
+                <li><strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
+                <li><strong>Model:</strong> {{deets.model}}</li>
+                <li><strong>Passengers:</strong> {{deets.passengers}}</li>
+                <li><strong>Starship class:</strong> {{deets.starship_class}}</li>
             </ul>
+
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
 
@@ -108,9 +161,24 @@
             </md-input-container>
         
             <ul flex>
-                <li>Birth year: {{deets.title}}</li>
-                <li>Homeworld: {{deets.homeworld}}</li>
+              <li><strong>MGLT:</strong> {{deets.MGLT}}</li>
+                <li><strong>Cargo capacity:</strong> {{deets.cargo_capacity}}</li>
+                <li><strong>Consumables:</strong> {{deets.consumables}}</li>
+                <li><strong>Cost in credits:</strong> {{deets.cost_in_credits}}</li>
+                <li><strong>Crew:</strong> {{deets.crew}}</li>
+                <li><strong>Hyperdrive rating:</strong> {{deets.hyperdrive_rating}}</li>
+                <li><strong>Length:</strong> {{deets.length}}</li>
+                <li><strong>Manufacturer:</strong> {{deets.manufacturer}}</li>
+                <li><strong>Model:</strong> {{deets.model}}</li>
+                <li><strong>Passengers:</strong> {{deets.passengers}}</li>
             </ul>
+
+            <div flex="50">
+                <h3>Comments:</h3>
+                <ul>
+                    <li ng-repeat="comment in fav.comments">{{comment.comments}}</li>
+                </ul>
+            </div>
             <img ng-src="{{deets.gif}}" alt="Gif">
         </md-card-content>
 

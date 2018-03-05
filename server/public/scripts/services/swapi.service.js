@@ -85,7 +85,7 @@ function swapiSvc ($http) {
                 url: url,
             }).then((response) => {
                 self.returned.favDeets.push(response.data);
-                console.log(self.returned.favDeets);
+                console.log('self.returned.favDeets:', self.returned.favDeets);
                 
                 getGIF(self.returned.favDeets[self.returned.favDeets.length - 1].name || self.returned.favDeets[self.returned.favDeets.length - 1].title);
             }).catch((error) => {
@@ -124,9 +124,8 @@ function swapiSvc ($http) {
             method: 'GET', 
             url: '/favorite'
         }).then( (response) => {
-            console.log(response.data);
             self.returned.FAVSdata = response.data;   
-            console.log(self.returned.FAVSdata);         
+            console.log('self.returned.FAVSdata:', self.returned.FAVSdata);         
         }).catch( (error) => {
             console.log(error);
         }); // END $http
