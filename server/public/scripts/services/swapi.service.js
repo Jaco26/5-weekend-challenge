@@ -97,6 +97,7 @@ function swapiSvc ($http) {
       /////////// //////////////////////
      // SWAPIfavs Post, Get, Put & Delete //
     ///////////// ////////////////////
+    // ADD A FAVORITE
     self.addFav = (fav) => {
         let favObj = {url: fav.url};
         let name;
@@ -117,6 +118,7 @@ function swapiSvc ($http) {
         })
     }
 
+    // GET ALL FAVORITES
     self.getFavs = () => {
         $http({
             method: 'GET', 
@@ -130,6 +132,7 @@ function swapiSvc ($http) {
         }); // END $http
     } // END self.getFavs
 
+    // DELETE FAVORITED THING
     self.deleteFav = (fav) => {
         console.log(fav._id);
         $http({
@@ -142,6 +145,7 @@ function swapiSvc ($http) {
         }); // END $http
     } // END self.deleteFav
 
+    // SUBMIT COMMENT ON A FAVORITE
     self.submitComment = (comment, id) => {
         console.log(comment, id);
         $http({
@@ -149,12 +153,11 @@ function swapiSvc ($http) {
             url: '/favorite/'+id,
             data: {comments: comment}
         }).then ( (response) => {
-           // self.getComments();
+            self.getFavs();
         }).catch( (error) => {
             console.log(error);    
         }); // END $http
     } // END self.submitComment
-
 
 
       ///////////////////////////

@@ -16,7 +16,7 @@ router.post('/',  (req, res) => {
         } else {
             res.sendStatus(200);
         }
-    })
+    }); // END newFav.save
 }); // END router /favorite POST
 
 router.get('/', (req, res) => {
@@ -42,7 +42,7 @@ router.delete('/:id', (req, res) => {
                 res.sendStatus(200);
             }
         }
-    )
+    ); // END Favorite.findByIdAndRemove
 }); // END router /favorite/:id DELETE
 
 // ADD COMMENT 
@@ -55,8 +55,7 @@ router.put('/:id', (req, res) => {
         if(error){
             res.sendStatus(500);  
         } else {
-            console.log('commentDoc._id', commentDoc.comments);
-            
+            console.log('commentDoc.comments', commentDoc.comments);
             Favorite.findByIdAndUpdate(
                 { "_id": id },
                 { $push: { comments: {comments: commentDoc.comments }} },
@@ -67,14 +66,11 @@ router.put('/:id', (req, res) => {
                     } else {
                         res.sendStatus(200);
                         console.log('updated fav Document', doc);
-
                     }
                 }
             )
         }
-    })
-    
-   
+    }); // END newComment.save
 }); // END router /favorite/:id PUT
 
 
