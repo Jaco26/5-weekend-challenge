@@ -13,10 +13,9 @@ function swapiSvc ($http) {
     const baseUrl = 'https://swapi.co/api/';
     
     self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
-        console.log('whichResource', whichResource, 'searchQuery', searchQuery, 'wookiee', wookiee);
         let swapiQuery;
         if (wookiee) {
-            swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery + '/?format=wookiee';
+            swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery + '&format=wookiee';
         } else {
             swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery;
         }
@@ -26,9 +25,8 @@ function swapiSvc ($http) {
         }).then( (response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            console.log(self.returned.SWAPIdata);
         }).catch( (error) => {
-            console.error('Error in self.searchSWAPI');
+            console.error('Error in self.searchSWAPI', error);
         });
     } // END self.searchSWAPI
 
@@ -40,7 +38,6 @@ function swapiSvc ($http) {
         }).then((response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            console.log(self.returned.SWAPIdata);
         }).catch((error) => {
             console.error('Error in self.searchSWAPI');
         });
@@ -53,9 +50,8 @@ function swapiSvc ($http) {
         }).then( (response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            console.log(self.returned.SWAPIdata);
         }).catch( (error) => {
-            console.log(error); 
+            console.error(error); 
         }); // END $http
     } // END self.getNextPage
 
@@ -66,9 +62,8 @@ function swapiSvc ($http) {
         }).then((response) => {
             self.returned.SWAPIdata = {};
             self.returned.SWAPIdata = response.data;
-            console.log(self.returned.SWAPIdata);
         }).catch((error) => {
-            console.log(error);
+            console.error(error);
         }); // END $http
     } // END self.getPrevPage
 
@@ -85,11 +80,9 @@ function swapiSvc ($http) {
                 url: url,
             }).then((response) => {
                 self.returned.favDeets.push(response.data);
-                console.log('self.returned.favDeets:', self.returned.favDeets);
-                
                 getGIF(self.returned.favDeets[self.returned.favDeets.length - 1].name || self.returned.favDeets[self.returned.favDeets.length - 1].title);
             }).catch((error) => {
-                console.log(error);
+                console.error(error);
             }); // END $http
         } 
     } // END self.getItemByURL
@@ -124,10 +117,9 @@ function swapiSvc ($http) {
             method: 'GET', 
             url: '/favorite'
         }).then( (response) => {
-            self.returned.FAVSdata = response.data;   
-            console.log('self.returned.FAVSdata:', self.returned.FAVSdata);         
+            self.returned.FAVSdata = response.data;          
         }).catch( (error) => {
-            console.log(error);
+            console.error(error);
         }); // END $http
     } // END self.getFavs
 
@@ -140,7 +132,7 @@ function swapiSvc ($http) {
         }).then( (response) => {
             self.getFavs();
         }).catch( (error) => {
-            console.log(error);            
+            console.error(error);            
         }); // END $http
     } // END self.deleteFav
 
@@ -173,10 +165,7 @@ function swapiSvc ($http) {
             method: 'GET',
             url: searchGIPHYurl + name + apiKey + limit,
         }).then( (response) => {
-            // console.log(response.data);
-            // console.log(self.returned.favDeets[self.returned.favDeets.length - 1]);
             self.returned.favDeets[self.returned.favDeets.length - 1].gif = response.data.data[0].images.downsized_medium.url;
-            console.log(self.returned.favDeets[1].gif);
         }).catch( (error) => {
             console.log(error); 
         }); // END $http

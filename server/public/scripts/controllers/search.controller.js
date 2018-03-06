@@ -1,4 +1,4 @@
-app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', function(swapi, $mdDialog, $mdToast) {
+app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', function(swapi) {
     const self = this;
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
@@ -13,7 +13,6 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     self.searchField = (whichResource) => {
         console.log('in searchField', whichResource);
         if (whichResource === 'films') {
-            console.log('whichResource is "films"');
             self.searchBarPlaceholder = 'search titles';
         } else if (whichResource === 'people') {
             self.searchBarPlaceholder = 'search names';
@@ -44,45 +43,6 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     // SEND FAVORITES TO DATABASE
     self.addFav = swapi.addFav
 
-
-
-
-  
-
-
-      // swapi $http calls
 }]);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // self.showAlert = function (ev) {
-    //     $mdDialog.show(
-    //         $mdDialog.alert()
-    //             .parent(angular.element(document.querySelector('#popupContainer')))
-    //                 .clickOutsideToClose(true)
-    //                 .title('This is an alert title')
-    //                 .textContent('You can specify something here')
-    //                 .ariaLabel('Alert Dialog Demo')
-    //                 .ok('Got it!')
-    //                 .targetEvent(ev)
-    //     )  
-    // } // END self.showAlert

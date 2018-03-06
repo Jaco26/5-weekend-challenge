@@ -1,4 +1,4 @@
-app.controller('FavoritesController', ['SWAPIService as swapi', function(swapi, $mdDialogue, $mdToast){
+app.controller('FavoritesController', ['SWAPIService as swapi', function(swapi){
     const self = this;
 
     // swapi returned data object
@@ -9,7 +9,6 @@ app.controller('FavoritesController', ['SWAPIService as swapi', function(swapi, 
     self.getItemByURL = swapi.getItemByURL;
     self.deleteFav = swapi.deleteFav;
     self.submitComment = swapi.submitComment;
-
 
     // ON LOAD
     self.getFavs()

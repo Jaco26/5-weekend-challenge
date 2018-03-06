@@ -48,14 +48,11 @@ router.delete('/:id', (req, res) => {
 // ADD COMMENT 
 router.put('/:id', (req, res) => {
     const id = req.params.id;
-    console.log('REQ.BODY', req.body);
     const newComment = new Comment(req.body);
-    console.log('NEW COMMENT', newComment);
     newComment.save( (error, commentDoc) => {
         if(error){
             res.sendStatus(500);  
         } else {
-            console.log('commentDoc.comments', commentDoc.comments);
             Favorite.findByIdAndUpdate(
                 { "_id": id },
                 { $push: { comments: {comments: commentDoc.comments }} },
