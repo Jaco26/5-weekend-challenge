@@ -14,9 +14,7 @@
                 <input type="text" placeholder="{{sc.searchBarPlaceholder}}" ng-model="seachQuery">
             </md-input-container>
         
-            <label for="wookieeYes">Format my results in Wookiee</label>
-            <input class="md-primary" type="checkbox" ng-model="sc.wookieeCheckBox.value1"  name="wookieeYess">
-            <md-button class="md-raised  search-btn" md-no-ink="true" ng-click="sc.searchSWAPI(whichResource, seachQuery, sc.wookieeCheckBox.value1)">Search</md-button>
+            <md-button class="md-raised  search-btn" md-no-ink="true" ng-click="sc.searchSWAPI(whichResource, seachQuery)">Search</md-button>
             <md-button class="md-raised  search-all-btn" md-no-ink="true" ng-click="sc.getAll(whichResource)">Get all {{whichResource}}</-mdbutton>
         </md-content>
     </section>

@@ -3,11 +3,6 @@ app.controller('SearchController', ['SWAPIService as swapi', '$mdDialog', functi
     // list of searchable resources and their attributes
     self.resources = { list: ['films', 'people', 'planets', 'species', 'starships', 'vehicles'] };
 
-    // format wookiee checkbox (true of false)
-    self.wookieeCheckBox = {
-        value1: false,
-    };
-
     // Dynamic search bar placeholder
     self.searchBarPlaceholder = 'search...';
     self.searchField = (whichResource) => {

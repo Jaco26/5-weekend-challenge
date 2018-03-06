@@ -13,12 +13,7 @@ function swapiSvc ($http) {
     const baseUrl = 'https://swapi.co/api/';
     
     self.searchSWAPI = (whichResource, searchQuery, wookiee) => {
-        let swapiQuery;
-        if (wookiee) {
-            swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery + '&format=wookiee';
-        } else {
-            swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery;
-        }
+        let swapiQuery = baseUrl + whichResource + '/?search=' + searchQuery;;
         $http({
             method: 'GET',
             url: swapiQuery
