@@ -1,17 +1,17 @@
 body {
-  background-color: teal;
+  background-color: #cdb4ee;
 }
 
 .results-interface {
-  background-color: teal;
+  background-color: #cdb4ee;
 }
 
 .search-interface {
-  background-color: teal !important;
+  background-color: #cdb4ee !important;
 }
 
 .favs-interface {
-  background-color: teal;
+  background-color: #cdb4ee;
 }
 
 .delete-btn {
@@ -28,21 +28,17 @@ body {
 
 .search-btn {
   width: 100px;
-  color: rgb(242, 104, 255) !important;
-  background-color: rgb(255, 255, 151) !important;
+  color: rgb(80, 53, 116) !important;
 }
 
 .search-all-btn {
   width: 140px;
-  color: rgb(104, 207, 255) !important;
-  background-color: rgb(255, 255, 36) !important;
+  color: rgb(61, 155, 199) !important;
 }
 
 .card-header {
-  color: rgb(0, 255, 106);
-  text-shadow: 1px 1px rgb(255, 10, 255);
+  color: rgb(4, 160, 250);
   border: 2px outset black;
-  box-shadow: 1px 1px rgb(19, 243, 57);
 }
 
 md-card {
